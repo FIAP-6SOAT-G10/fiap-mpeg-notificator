@@ -1,0 +1,36 @@
+server:
+  port: 9090
+
+#spring:
+#  application:
+#    name: notificator
+#  mail:
+#    host: sandbox.smtp.mailtrap.io
+#    port: 587
+#    username: 786b7fc9bf37a4
+#    password: b963a11138643d
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#        startttls:
+#          enable: true
+
+spring:
+  application:
+    name: notificator
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: "fiap.notificator@gmail.com"
+    password: "zbjq thzm qodh oigo"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+aws:
+  sqs:
+    request-video-notificator-queue: sqs-request-video-notificator
