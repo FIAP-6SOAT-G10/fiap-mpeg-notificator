@@ -1,20 +1,5 @@
 server:
-  port: 9090
-
-#spring:
-#  application:
-#    name: notificator
-#  mail:
-#    host: sandbox.smtp.mailtrap.io
-#    port: 587
-#    username: 786b7fc9bf37a4
-#    password: b963a11138643d
-#    properties:
-#      mail:
-#        smtp:
-#          auth: true
-#        startttls:
-#          enable: true
+  port: 8899
 
 spring:
   application:
@@ -22,8 +7,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: "fiap.notificator@gmail.com"
-    password: "zbjq thzm qodh oigo"
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:

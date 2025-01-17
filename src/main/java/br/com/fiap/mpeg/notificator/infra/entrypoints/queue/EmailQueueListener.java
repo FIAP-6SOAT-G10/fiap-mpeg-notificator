@@ -25,7 +25,7 @@ public class EmailQueueListener {
 
     }
 
-//    @SqsListener("${aws.sqs.order-payment-updates-queue}")
+    @SqsListener("${aws.sqs.order-payment-updates-queue}")
     public void listen(EmailRequestDTO emailRequestDTO) {
         Set<ConstraintViolation<EmailRequestDTO>> violations = validator.validate(emailRequestDTO);
 
