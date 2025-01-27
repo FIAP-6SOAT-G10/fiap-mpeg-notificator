@@ -10,8 +10,8 @@
 	</parent>
 	<groupId>br.com.fiap.mpeg</groupId>
 	<artifactId>notificator</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>notificator</name>
+	<version>1.0</version>
+	<name>Notificator</name>
 	<description>Sistema de processamento de videos</description>
 	<url/>
 	<licenses>
@@ -51,9 +51,26 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 			<version>3.4.1</version>
 		</dependency>
+
+		<!--testes unitarios-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

@@ -1,0 +1,8 @@
+services:
+  notificator:
+    container_name: notificator
+    build:
+      context: .
+    image: 427107249392.dkr.ecr.us-east-1.amazonaws.com/payments:1.0
+    ports:
+      - "8080:8080"
