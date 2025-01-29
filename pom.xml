@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.fiap.mpeg</groupId>
-	<artifactId>notificator</artifactId>
+	<artifactId>fiap-mpeg-notificator</artifactId>
 	<version>1.0</version>
 	<name>Notificator</name>
 	<description>Sistema de processamento de videos</description>
