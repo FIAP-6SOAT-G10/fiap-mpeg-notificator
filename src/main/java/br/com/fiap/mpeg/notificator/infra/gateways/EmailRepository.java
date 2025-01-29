@@ -27,10 +27,11 @@ public class EmailRepository implements IEmailRepository {
         body.append("Olá ").append(emailRequest.getRecipientName())
                 .append(",\n\n")
                 .append("O protocolo ").append(emailRequest.getProtocol())
-                .append(" está finalizado.\n");
+                .append(" está finalizado.\n")
+                .append("URL de acesso ").append(emailRequest.getUrl());
 
         if (emailRequest.getFiles() != null && !emailRequest.getFiles().isEmpty()) {
-            body.append("\nArquivos processados:\n");
+            body.append("\n\nArquivos processados:\n");
             emailRequest.getFiles().forEach(file ->
                     body.append("- Arquivo: ").append(file.getFilename())
                             .append(", Status: ").append(file.getType().getDescription())

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-notificator
+  labels:
+    app: notificator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notificator
+  template:
+    metadata:
+      labels:
+        app: notificator
+    spec:
+      containers:
+        - name: notificator
+          image: 811851959278.dkr.ecr.us-east-1.amazonaws.com/orders:1.0
+          imagePullPolicy: Always
+          env:
+            - name: MAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-notificator
+                  key: MAIL_PASSWORD
+            - name: MAIL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret-notificator
+                  key: MAIL_USERNAME
+          envFrom:
+            - configMapRef:
+                name: cm-notificator
+          ports:
+            - containerPort: 8080
