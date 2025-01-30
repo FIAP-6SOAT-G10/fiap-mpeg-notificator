@@ -169,12 +169,8 @@
 										<format>XML</format>
 									</formats>
 									<excludes>
-										<exclude>**/AWSConfig.*</exclude>
-										<exclude>**/PaymentConfig.java</exclude>
-										<exclude>**/PaymentController.*</exclude>
-										<exclude>**/PaymentMicroserviceApplication.java</exclude>
-										<exclude>**/PaymentMicroserviceApplicationTests.java</exclude>
-										<exclude>**/PaymentMicroserviceApplicationIT.java</exclude>
+										<exclude>**/EmailConfig.*</exclude>
+										<exclude>**/EmailController.*</exclude>
 									</excludes>
 								</configuration>
 							</execution>
