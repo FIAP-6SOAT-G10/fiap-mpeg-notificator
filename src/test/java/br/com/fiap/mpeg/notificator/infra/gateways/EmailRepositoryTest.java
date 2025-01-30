@@ -65,6 +65,7 @@ class EmailRepositoryTest {
                 Olá John Doe,
 
                 O protocolo 12345 está finalizado.
+                URL de acesso http://example.com
 
                 Arquivos processados:
                 - Arquivo: file1.txt, Status: Sucesso
