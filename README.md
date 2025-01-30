@@ -1,6 +1,6 @@
 # FIAP MPEG Notificator
 
-Sistema responsável por gerenciar e enviar notificações relacionadas ao processamento de vídeos, utilizando **AWS SQS** para filas de mensagens e **Java Spring Boot** como framework backend.
+Sistema responsável por gerenciar e enviar notificações relacionadas ao processamento de vídeos, utilizando **AWS SQS** para filas de mensagens e **Java Spring Boot** como framework backend
 
 ## 📜 Funcionalidades
 
