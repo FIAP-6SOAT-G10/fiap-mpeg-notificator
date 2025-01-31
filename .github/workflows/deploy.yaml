@@ -8,6 +8,7 @@ on:
 env:
   AWS_REGION: "us-east-1"
   EKS_CLUSTER_NAME: "fiap_mpeg_eks"
+  APP_NAME: "fiap-mpeg-notificator"
 
 jobs:
 
@@ -95,7 +96,7 @@ jobs:
 
       - name: Get Docker Image ID
         id: image_id
-        run: echo "::set-output name=image_id::$(docker images | grep payments | awk '{print $3}' | uniq)"
+        run: echo "::set-output name=image_id::$(docker images | grep notificator | awk '{print $3}' | uniq)"
 
       - name: Get AWS Account ID
         id: aws_account
@@ -106,13 +107,13 @@ jobs:
           aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin ${{ steps.aws_account.outputs.account_id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com
 
       - name: Tag Docker Image
-        run: docker tag ${{ steps.image_id.outputs.image_id }} ${{ steps.aws_account.outputs.account_id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/payments:1.0
+        run: docker tag ${{ steps.image_id.outputs.image_id }} ${{ steps.aws_account.outputs.account_id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.APP_NAME }}:1.0
 
       - name: Push Docker Image to ECR
-        run: docker push ${{ steps.aws_account.outputs.account_id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/payments:1.0
+        run: docker push ${{ steps.aws_account.outputs.account_id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.APP_NAME }}:1.0
 
       - name: Update kubeconfig for EKS
-        run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name fiap_fast_food_eks
+        run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER_NAME }}
 
 
   deploy:
