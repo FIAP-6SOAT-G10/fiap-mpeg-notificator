@@ -27,6 +27,7 @@ public class EmailQueueListener {
 
     @SqsListener("${aws.sqs.request-video-notificator-queue}")
     public void listen(EmailRequestDTO emailRequestDTO) {
+        System.out.println("Mensagem recebida na fila.");
         Set<ConstraintViolation<EmailRequestDTO>> violations = validator.validate(emailRequestDTO);
 
         if (!violations.isEmpty()) {
