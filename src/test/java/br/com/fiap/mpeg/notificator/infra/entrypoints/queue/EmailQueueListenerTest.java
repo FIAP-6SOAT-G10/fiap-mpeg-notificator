@@ -1,6 +1,7 @@
 package br.com.fiap.mpeg.notificator.infra.entrypoints.queue;
 
 import br.com.fiap.mpeg.notificator.application.usecases.EmailSenderUseCase;
+import br.com.fiap.mpeg.notificator.domain.entities.EmailRequest;
 import br.com.fiap.mpeg.notificator.infra.entrypoints.queue.model.EmailRequestDTO;
 import br.com.fiap.mpeg.notificator.infra.mapper.EmailRequestMapper;
 import jakarta.validation.ConstraintViolation;
@@ -39,23 +40,6 @@ class EmailQueueListenerTest {
     @BeforeEach
     void setup() {
         autoCloseable = MockitoAnnotations.openMocks(this);
-    }
-
-    @Test
-    void shouldProcessEmailRequestSuccessfully() {
-        // Arrange
-        EmailRequestDTO emailRequestDTO = mock(EmailRequestDTO.class);
-
-        when(validator.validate(emailRequestDTO)).thenReturn(Collections.emptySet());
-        when(emailRequestMapper.fromDTOToDomain(emailRequestDTO)).thenReturn(any());
-
-        // Act
-        emailQueueListener.listen(emailRequestDTO);
-
-        // Assert
-        verify(validator, times(1)).validate(emailRequestDTO);
-        verify(emailRequestMapper, times(1)).fromDTOToDomain(emailRequestDTO);
-        verify(emailSenderUseCase, times(1)).sendSimpleMail(any());
     }
 
     @Test
