@@ -15,6 +15,6 @@ public class EmailFileMapper {
     public EmailFile fromDTOToDomain(EmailFileDTO file) {
         return new EmailFile(
                 file.getFilename(),
-                EmailTypeEnum.valueOf(file.getType()));
+                EmailTypeEnum.valueOf(file.getStatus()));
     }
 }

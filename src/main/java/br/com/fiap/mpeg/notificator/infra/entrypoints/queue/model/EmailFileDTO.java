@@ -9,11 +9,11 @@ public class EmailFileDTO {
     private String filename;
 
     @NotBlank(message = "Tipo não pode ser vazio")
-    private String type;
+    private String status;
 
-    public EmailFileDTO(String filename, String type) {
+    public EmailFileDTO(String filename, String status) {
         this.filename = filename;
-        this.type = type;
+        this.status = status;
     }
 
     public String getFilename() {
@@ -24,19 +24,19 @@ public class EmailFileDTO {
         this.filename = filename;
     }
 
-    public String getType() {
-        return type;
+    public String getStatus() {
+        return status;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
         return "EmailFileDTO{" +
                 "filename='" + filename + '\'' +
-                ", type='" + type + '\'' +
+                ", type='" + status + '\'' +
                 '}';
     }
 }

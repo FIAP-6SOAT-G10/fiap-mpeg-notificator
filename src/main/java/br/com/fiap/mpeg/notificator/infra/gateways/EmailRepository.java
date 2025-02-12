@@ -19,6 +19,7 @@ public class EmailRepository implements IEmailRepository {
         message.setTo(emailRequest.getRecipientEmail());
         message.setSubject("Protocolo " + emailRequest.getProtocol());
         message.setText(formatBody(emailRequest));
+        System.out.println("Enviando mensagem");
         mailSender.send(message);
     }
 
