@@ -31,4 +31,12 @@ public class EmailFileDTO {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "EmailFileDTO{" +
+                "filename='" + filename + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

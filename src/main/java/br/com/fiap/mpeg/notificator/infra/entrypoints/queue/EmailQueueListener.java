@@ -27,13 +27,14 @@ public class EmailQueueListener {
 
     @SqsListener("${aws.sqs.request-video-notificator-queue}")
     public void listen(EmailRequestDTO emailRequestDTO) {
-        System.out.println("Mensagem recebida na fila.");
+        System.out.println("Mensagem recebida na fila." + emailRequestDTO.toString());
         Set<ConstraintViolation<EmailRequestDTO>> violations = validator.validate(emailRequestDTO);
 
         if (!violations.isEmpty()) {
             throw new ConstraintViolationException("Validation failed", violations);
         }
 
+        System.out.println("Mensagem validada");
         emailSenderUseCase.sendSimpleMail(emailRequestMapper.fromDTOToDomain(emailRequestDTO));
     }
 }

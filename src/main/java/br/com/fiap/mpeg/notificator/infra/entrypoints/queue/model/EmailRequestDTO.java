@@ -70,4 +70,15 @@ public class EmailRequestDTO {
     public void setFiles(@NotEmpty(message = "Lista de arquivos não pode ser vazio") List<EmailFileDTO> files) {
         this.files = files;
     }
+
+    @Override
+    public String toString() {
+        return "EmailRequestDTO{" +
+                "recipientEmail='" + recipientEmail + '\'' +
+                ", recipientName='" + recipientName + '\'' +
+                ", url='" + url + '\'' +
+                ", protocol='" + protocol + '\'' +
+                ", files=" + files +
+                '}';
+    }
 }
